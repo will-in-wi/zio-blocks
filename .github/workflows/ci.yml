@@ -17,11 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - name: Install locale data
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y locales
-          sudo locale-gen en_US.UTF-8
       - name: Checkout current branch
         uses: actions/checkout@v4.1.2
         with:
@@ -45,6 +40,11 @@ jobs:
         java: ['11', '21']
         os: ['ubuntu-22.04-arm', 'ubuntu-22.04']
     steps:
+      - name: Install locale data
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y locales
+          sudo locale-gen en_US.UTF-8
       - name: Checkout current branch
         uses: actions/checkout@v4.1.2
         with:
